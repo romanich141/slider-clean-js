@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgrey;
+}
+
+.slider {
+    &__wrapper {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        overflow: hidden;
+    }
+
+    &__item {
+        @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+              background-image: url(./src/#{$i}.jpg);
+            }
+        }
+
+        padding: 0 20px;
+        flex: 1;
+        height: 70vh;
+        margin: 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all, .5s;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        &:hover {
+            opacity: 0.9;
+            transition: all, .1s;
+        }
+        &.active {
+            flex: 10;
+            transition: all, .5s, .5s;
+        }
+    }
+}
